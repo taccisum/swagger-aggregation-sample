@@ -12,6 +12,7 @@
     <modules>
         <module>eureka-sample</module>
         <module>foo-service</module>
+        <module>bar-service</module>
     </modules>
 
     <dependencies>

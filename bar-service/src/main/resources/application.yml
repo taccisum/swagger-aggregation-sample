@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: bar-service
+eureka:
+  client:
+    service-url:
+      defaultZone: 'http://127.0.0.1:18080/eureka/'
+server:
+  port: 18082
