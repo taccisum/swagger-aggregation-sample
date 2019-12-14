@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: sc-gateway-sample
+server:
+  port: 18090
+management:
+  server:
+    port: 18091
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+eureka:
+  client:
+    service-url:
+      defaultZone: 'http://127.0.0.1:18080/eureka/'
+    register-with-eureka: false

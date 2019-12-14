@@ -13,6 +13,7 @@
         <module>eureka-sample</module>
         <module>foo-service</module>
         <module>bar-service</module>
+        <module>sc-gateway-sample</module>
     </modules>
 
     <dependencies>
