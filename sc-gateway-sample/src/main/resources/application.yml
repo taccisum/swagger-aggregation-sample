@@ -1,6 +1,11 @@
 spring:
   application:
     name: sc-gateway-sample
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
 server:
   port: 18090
 management:
