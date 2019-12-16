@@ -7,3 +7,5 @@ eureka:
       defaultZone: 'http://127.0.0.1:18080/eureka/'
 server:
   port: 18081
+swagger:
+  base-package: com.github.taccisum.swagger.aggregation.sample.app
