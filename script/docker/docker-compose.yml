@@ -1,0 +1,57 @@
+version: '3.6'
+services:
+  eureka:
+    image: eureka-sample
+    ports:
+      - "8761:8761"
+      - "18761:18761"
+    networks:
+      - def_network
+  foo-service:
+    image: foo-service
+    ports:
+      - "8080:8080"
+      - "18080:18080"
+    environment:
+      JAVA_OPTS: '
+      -Deureka.client.service-url.defaultZone=http://eureka:8761/eureka/
+      -Deureka.instance.ip-address=foo-service
+      -Deureka.instance.hostname=foo-service
+      '
+    depends_on:
+      - eureka
+    networks:
+      - def_network
+  bar-service:
+    image: bar-service
+    ports:
+      - "8081:8081"
+      - "18081:18081"
+    environment:
+      JAVA_OPTS: '
+      -Deureka.client.service-url.defaultZone=http://eureka:8761/eureka/
+      -Deureka.instance.ip-address=bar-service
+      -Deureka.instance.hostname=bar-service
+      '
+    depends_on:
+      - eureka
+    networks:
+      - def_network
+  sc-gateway:
+    image: sc-gateway-sample
+    ports:
+      - "8082:8082"
+      - "18082:18082"
+    environment:
+      JAVA_OPTS: '
+      -Deureka.client.service-url.defaultZone=http://eureka:8761/eureka/
+      '
+    depends_on:
+      - eureka
+      - foo-service
+      - bar-service
+    networks:
+      - def_network
+networks:
+  def_network:
+    name: swagger-aggregation-sample-network

@@ -4,8 +4,15 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: 'http://127.0.0.1:18080/eureka/'
+      defaultZone: 'http://127.0.0.1:8761/eureka/'
 server:
-  port: 18081
+  port: 8080
+management:
+  server:
+    port: 18080
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 swagger:
   base-package: com.github.taccisum.swagger.aggregation.sample.app

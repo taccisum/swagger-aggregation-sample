@@ -7,10 +7,10 @@ spring:
         locator:
           enabled: true
 server:
-  port: 18090
+  port: 8082
 management:
   server:
-    port: 18091
+    port: 18082
   endpoints:
     web:
       exposure:
@@ -18,7 +18,7 @@ management:
 eureka:
   client:
     service-url:
-      defaultZone: 'http://127.0.0.1:18080/eureka/'
+      defaultZone: 'http://127.0.0.1:8761/eureka/'
     register-with-eureka: false
 logging:
   level:

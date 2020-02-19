@@ -2,4 +2,11 @@ eureka:
   client:
     register-with-eureka: false
 server:
-  port: 18080
+  port: 8761
+management:
+  server:
+    port: 18761
+  endpoints:
+    web:
+      exposure:
+        include: '*'
